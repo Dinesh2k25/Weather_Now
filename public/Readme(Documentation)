@@ -1,0 +1,159 @@
+🌤️ Weather Now
+🧭 Overview
+
+Weather Now is a responsive web application built with React that allows users to quickly check the current weather conditions for any city around the world.
+It displays temperature, wind speed, humidity, and an interactive map view of the selected location using React-Leaflet.
+
+The app also supports dark mode, auto-suggestions for city search, and a clean adaptive layout for both desktop and mobile devices.
+
+🎯 Objectives
+
+The goal of this project is to create an interactive, user-friendly weather application that:
+
+Provides accurate and real-time weather data.
+
+Allows quick city-based searches with live suggestions.
+
+Displays location visually on an interactive map.
+
+Adapts seamlessly across desktop and mobile screens.
+
+🏗️ Tech Stack
+Purpose	Technology Used
+Framework	React (Vite / React-Scripts)
+Styling	CSS Modules
+Weather Data	Open-Meteo API
+Geolocation	Open-Meteo Geocoding API
+Map Integration	React-Leaflet + Leaflet
+Hosting	CodeSandbox / Vercel
+State Handling	React Hooks (useState, useEffect)
+🌍 API References
+1️⃣ Geocoding API
+
+Converts a city name to latitude and longitude.
+
+Example:
+
+https://geocoding-api.open-meteo.com/v1/search?name=Chennai
+
+
+Response:
+
+{
+  "results": [
+    {
+      "latitude": 13.08784,
+      "longitude": 80.27847,
+      "name": "Chennai",
+      "country": "India"
+    }
+  ]
+}
+
+2️⃣ Weather API
+
+Fetches current and forecast weather data.
+
+Example:
+
+https://api.open-meteo.com/v1/forecast?latitude=13.08784&longitude=80.27847&current_weather=true
+
+
+Response:
+
+{
+  "current_weather": {
+    "temperature": 31.5,
+    "windspeed": 12.3,
+    "weathercode": 1
+  }
+}
+
+🧩 Application Structure
+src/
+│
+├── App.js               # Main application file
+├── App.module.css       # Responsive CSS styling
+├── Header.js            # Header component (search bar + title)
+├── Footer.js            # Weather info display (current & forecast)
+├── MapView.js           # Leaflet map component
+├── WeatherCard.js       # Reusable weather display card
+└── index.js             # React entry point
+
+📱 Responsive Layout
+Section	Description
+Header	Floating bar at the top with red background. Contains title and city search with auto-suggestion.
+Map	Full-screen interactive Leaflet map showing the city marker.
+Footer (Weather Info)	Blue floating card showing weather summary, temperature, wind, humidity, and tomorrow’s forecast. Shrinks on mobile view.
+
+Layout Ratio (Header : Map : Footer) → 1 : 5 : 2
+Mobile View: Components auto-stack and adjust height using CSS media queries.
+
+🌦️ Features
+Feature	Description
+🔍 City Search	Type any city name to fetch weather instantly
+🧭 Auto Suggestion	Shows list of matching cities as you type
+🌡️ Weather Info	Displays temperature, wind speed, humidity
+🗺️ Map Integration	Interactive React-Leaflet map view
+🌙 Dark Mode	Optional theme toggle for better UX
+💾 Local Storage	Saves last searched city
+🧱 Responsive Design	Optimized for desktop and mobile
+⚠️ Error Handling	Invalid city and network error messages
+📅 Forecast	Shows tomorrow’s temperature and conditions
+🧠 How It Works
+
+User enters a city name in the search box.
+
+The app fetches latitude and longitude from the Open-Meteo Geocoding API.
+
+Using the coordinates, it calls the Open-Meteo Weather API to retrieve real-time weather data.
+
+Data is displayed dynamically, and a map marker appears on the Leaflet map.
+
+Weather info (footer card) updates accordingly with appropriate weather icons.
+
+Responsive CSS ensures proper scaling across all devices.
+
+🧪 Example
+City	Temperature	Wind Speed	Condition
+Chennai	31°C	12 km/h	☀️ Sunny
+London	15°C	8 km/h	🌧️ Rain
+Tokyo	22°C	6 km/h	⛅ Partly Cloudy
+🧰 Installation & Run (Local Development)
+# 1. Create React App or Vite project
+npx create-react-app weather-now
+
+# 2. Install dependencies
+npm install react react-dom react-leaflet leaflet
+
+# 3. Start development server
+npm start
+
+🚀 Deployment
+
+You can deploy the app to:
+
+CodeSandbox – for instant preview
+
+Vercel / Netlify – for production hosting
+
+GitHub Pages – for free public access
+
+🧾 Future Enhancements
+
+🌈 Animated weather icons (sun, rain, clouds)
+
+🗓️ 7-day forecast view
+
+📍 Detect user’s current location
+
+💬 Multi-language support
+
+⚙️ Offline (PWA) mode
+
+🧑‍💻 Author
+
+Developed by: Dinesh
+Role: Software Developer
+Year: 2025
+Project: Weather Now – React Responsive Application
